@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/style.css" type="text/css" media="all">
+    
+    <title>Gráficos históricos — 🌱</title>
+
+    <style>
+      body {
+	  width: 100%;
+      }
+      div.graphs {
+
+	  display: grid;
+	  width: 100%;
+
+	  grid-template-columns: 1fr 1fr;
+	  grid-gap: 20px 20px;
+	  
+	  justify-content: space-evenly;
+
+	  iframe {
+	      justify-self: center;
+	  }
+      }
+      
+      @media (max-width: 900px) {
+	  div.graphs {
+	      grid-template-columns: 1fr;
+	  }
+      }      
+    </style>
+  </head>
+  <body>
+    <h2>🌱📈🌱📈🌱📈🌱📈🌱📈</h2>
+    <h3>Gráficos Históricos</h3>
+
+    
+    
+    <div class="graphs">
+
+      <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2338819/charts/1?api_key=Y0OZ6D49DQUX3XHM&bgcolor=%23ffffff&color=%23E63E6A&dynamic=true&results=240&title=Temperatura&type=line&xaxis=Data&yaxis=%C2%B0C"></iframe>
+
+
+      <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2338819/charts/2?api_key=Y0OZ6D49DQUX3XHM&bgcolor=%23ffffff&color=%2354E668&dynamic=true&results=240&title=Umidade+do+Ar&type=line&xaxis=Data&yaxis=%25&yaxismax=100&yaxismin=0"></iframe>
+
+
+      
+      <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2338819/charts/3?api_key=Y0OZ6D49DQUX3XHM&bgcolor=%23ffffff&color=%23E6BE3E&dynamic=true&results=240&title=Luminosidade&type=line&xaxis=Data&yaxis=%25&yaxismax=100&yaxismin=0"></iframe>
+
+      <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2338819/charts/4?api_key=Y0OZ6D49DQUX3XHM&bgcolor=%23ffffff&color=%2349E6C9&dynamic=true&results=240&title=Umidade+do+Solo&type=line&xaxis=Data&yaxis=%25"></iframe>
+
+    </div>
+
+    <script src="static/graphs.js"></script>
+
+
+  </body>
+</html>

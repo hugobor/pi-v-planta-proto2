@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/style.css" type="text/css" media="all">
+    
+    <title>Monitoramento da planta — 🌱</title>
+
+  </head>
+  <body>
+    <h2>🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱</h2>
+
+    <h4>
+      <a href="/graphs.html">Graficos</a>
+      |
+      <a href="/histo.html">Histórico</a>
+    </h4>
+
+    <h3>Monitoramento da Planta</h3>
+    <br>
+
+
+    
+    <p><span class="sensor-label">🌡️ Temperatura:</span>     <span class="sensor-data"><span id="temp">%TEMP%</span> °C</span></p>
+    <p><span class="sensor-label">💧 Umidade:</span>     <span class="sensor-data"><span id="hum">%HUM%</span>&percnt;</span></p>
+    <p><span class="sensor-label">🪴 Umidade do Solo:</span> <span class="sensor-data"><span id="soil">%SOIL%</span>&percnt;</span></p>
+    <p><span class="sensor-label">☀️ Luminosidade:</span>     <span class="sensor-data"><span id="lumi">%LUMI%</span>&percnt;</span></p>
+
+    <!---
+	<h3>LED</h3>
+    <p>
+      <a id="on-btn-link" href="#"><span id="on-btn" class="on-btn">LIGA</span></a>
+      <a id="off-btn-link" href="#"><span class="off-btn">DESLIGA</span></a>
+    </p>
+
+    <h3></h3>
+    <p>Teste: <span id="socket-data">…</span></p>
+    <p><button type="button" id="send-socket-btn">Enviar coisas para o servidor</button></p>
+    --->
+
+    <h3>Configurações</h3>
+    <div class="configs">
+      <form id="configs-form" method="post" action="/update-configs">
+	<label for="sens_log_delay">Frequêncai de logging</label>
+	<input id="sens_log_delay" name="sens_log_delay" type="number" min="1" max="" step="1" value="1" required disabled>
+	<span class="field-unit">min</span>
+
+	<label for="watering_time">Tempo de rega</label>
+	<input id="watering_time" name="watering_time" type="number" min="1" max="60" step="1" value="1" required disabled>
+	<span class="field-unit">s</span>
+	
+	<hr>
+	
+	<label for="check_low_soil_humi">Regar quando o solo estiver seco</label>
+	<input id="check_low_soil_humi" name="check_low_soil_humi" type="checkbox" disabled>
+
+	<label for="check_low_soil_humi_interval">Intervalo de verificação umidade</label>
+	<input id="check_low_soil_humi_interval" name="check_low_soil_humi_interval" type="number" min="1" max="48" step="1" value="1" required disabled>
+	<span class="field-unit">h</span>
+
+	<label for="min_soil_humi">Umidade mínima</label>
+	<input id="min_soil_humi" name="min_soil_humi" type="number" min="0" max="100" step="0.1" value="0" required disabled>
+	<span class="field-unit">%</span>
+
+	<hr>
+
+	<label for="activate_alarm">Ativar rega periódica</label>
+	<input id="activate_alarm" name="activate_alarm" type="checkbox" disabled>
+
+	<label for="alarm_hours_alarm_minutes">Horário de rega</label>
+	<input id="alarm_hours_alarm_minutes" name="alarm_hours_alarm_minutes" type="time" value="06:00" disabled required>
+	
+
+	<hr>
+
+	
+	<button type="button" id="undo-btn" style="display: hide" disabled>Desfazer</button>
+	<input id="save-configs" type="submit" value="Salvar Configurações" disabled>
+      </form>
+    </div>
+
+    
+    <h2>Regas</h2>
+
+    <h3>Regar Agora</h3>
+    <div class="water-now-div">
+      <button type="button" id="water-now-btn" disabled>Regar agora</button>
+    </div>
+
+
+
+    <h3>Últimas Regas</h3>
+    <div>
+      <table class="watering-table">
+	<thead>
+	  <th>Data e Hora</th><th>Tipo</th><th>Duração</th>
+	</thead>
+	
+	<tbody id="regas-tbl-tbody">
+	</tbody>
+      </table>
+    </div>
+
+    <script src="static/script.js"></script>
+
+    <h3>Logs</h3>
+    <div class="logs">
+    </div>
+
+  </body>
+</html>
